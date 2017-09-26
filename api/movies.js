@@ -2,7 +2,7 @@
 const status = require('http-status')
 
 module.exports = (app, options) => {
-  const {repo} = options
+  const { repo } = options
 
   // here we get all the movies
   app.get('/movies', (req, res, next) => {

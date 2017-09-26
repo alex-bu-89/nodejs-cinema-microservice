@@ -2,7 +2,6 @@
 // factory function, that holds an open connection to the db,
 // and exposes some functions for accessing the data.
 const repository = (db) => {
-
     // since this is the movies-service, we already know
     // that we are going to query the `movies` collection
     // in all of our functions.
