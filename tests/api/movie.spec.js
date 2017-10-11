@@ -1,6 +1,6 @@
 /* eslint-env mocha */
 const request = require('supertest')
-const server = require('../server/server')
+const server = require('../../src/server/server')
 
 describe('Movies API', () => {
   let app = null
