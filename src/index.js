@@ -1,9 +1,9 @@
 'use strict'
 // we load all the depencies we need
 const {EventEmitter} = require('events')
-const server = require('./src/server/server')
-const repository = require('./src/repository/repository')
-const config = require('./config/config')
+const server = require('./server/server')
+const repository = require('./repository/repository')
+const config = require('./config/')
 const mediator = new EventEmitter()
 
 // verbose logging when we are starting the server
