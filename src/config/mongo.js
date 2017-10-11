@@ -4,7 +4,7 @@ const getMongoURL = (options) => {
   const url = options.servers
     .reduce((prev, cur) => prev + cur + ',', 'mongodb://')
 
-  return `${url.substr(0, url.length - 1)}/${options.db}`
+  // return `${url.substr(0, url.length - 1)}/${options.db}`
 }
 
 const connect = (options, mediator) => {
