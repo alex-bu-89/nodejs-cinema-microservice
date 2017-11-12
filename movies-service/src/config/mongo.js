@@ -11,8 +11,7 @@ const connect = (options, mediator) => {
     MongoClient.connect(
       getMongoURL(options), {
         db: options.dbParameters(),
-        server: options.serverParameters(),
-        replset: options.replsetParameters(options.repl)
+        server: options.serverParameters()
       }, (err, db) => {
         if (err) {
           mediator.emit('db.error', err)
