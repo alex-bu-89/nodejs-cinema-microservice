@@ -9,14 +9,14 @@ const dbSettings = {
   servers: (process.env.DB_SERVERS) ? process.env.DB_SERVERS.split(' ') : [
     '192.168.99.100:27017',
     '192.168.99.101:27017',
-    '192.168.99.102:27017'
+    '192.168.99.102:27017',
   ],
   dbParameters: () => ({
     w: 'majority',
     wtimeout: 10000,
     j: true,
     readPreference: 'ReadPreference.SECONDARY_PREFERRED',
-    native_parser: false
+    native_parser: false,
   }),
   serverParameters: () => ({
     autoReconnect: true,
@@ -24,8 +24,8 @@ const dbSettings = {
     socketoptions: {
       keepAlive: 300,
       connectTimeoutMS: 30000,
-      socketTimeoutMS: 30000
-    }
+      socketTimeoutMS: 30000,
+    },
   }),
   replsetParameters: (replset = 'rs1') => ({
     replicaSet: replset,
@@ -35,14 +35,14 @@ const dbSettings = {
     socketoptions: {
       keepAlive: 300,
       connectTimeoutMS: 30000,
-      socketTimeoutMS: 30000
-    }
-  })
-}
+      socketTimeoutMS: 30000,
+    },
+  }),
+};
 
 // server parameters
 const serverSettings = {
-  port: process.env.PORT || 3000
-}
+  port: process.env.PORT || 3000,
+};
 
-module.exports = Object.assign({}, { dbSettings, serverSettings })
+module.exports = Object.assign({}, { dbSettings, serverSettings });
