@@ -1,5 +1,5 @@
 /* eslint-env mocha */
-const server = require('../../src/server')
+const server = require('../../src/server/server');
 
 describe('Server', () => {
   it('should require a port to start', () => {

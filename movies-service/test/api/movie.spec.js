@@ -42,11 +42,11 @@ describe('Movies API', () => {
   beforeEach(() => {
     return server.start({
       port: 3000,
-      repo: testRepo
-    }).then(serv => {
-      app = serv
-    })
-  })
+      repo: testRepo,
+    }).then((serv) => {
+      app = serv;
+    });
+  });
 
   afterEach(() => {
     app.close()
