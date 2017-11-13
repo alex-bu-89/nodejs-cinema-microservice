@@ -1,4 +1,4 @@
-const MongoClient = require('mongodb')
+const MongoClient = require('mongodb');
 
 const getMongoURL = (options) => {
   const url = options.servers.reduce((prev, cur) => prev + cur + ',', 'mongodb://');
@@ -16,7 +16,8 @@ const connect = (options, mediator) => {
         }
 
         mediator.emit('db.ready', db);
-      });
+      },
+    );
   });
 };
 
