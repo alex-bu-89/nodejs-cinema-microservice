@@ -37,6 +37,9 @@ mediator.on('db.ready', (db) => {
       app.on('close', () => {
         rep.disconnect();
       });
+    })
+    .catch((err) => {
+      throw new Error(err);
     });
 });
 mediator.on('db.error', (err) => {

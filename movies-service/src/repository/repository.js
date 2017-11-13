@@ -74,4 +74,4 @@ const connect = (connection) => {
     })
 };
 // this only exports a connected repo
-module.exports = Object.assign({}, {connect});
+module.exports = Object.assign({}, { connect });
