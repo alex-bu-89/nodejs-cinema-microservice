@@ -40,7 +40,12 @@ const repository = (db) => {
 
     const getMovieById = (id) => {
         return new Promise((resolve, reject) => {
-            const projection = {_id: 0, id: 1, title: 1, format: 1};
+            const projection = {
+                _id: 0,
+                id: 1,
+                title: 1,
+                format: 1
+            };
             const sendMovie = (err, movie) => {
                 if (err) {
                     reject(new Error(`An error occured fetching a movie with id: ${id}, err: ${err}`))
@@ -48,7 +53,9 @@ const repository = (db) => {
                 resolve(movie)
             };
             // fetch a movie by id -- mongodb syntax
-            collection.findOne({id: id}, projection, sendMovie)
+            collection.findOne({
+                id: id
+            }, projection, sendMovie)
         })
     };
 
@@ -74,4 +81,6 @@ const connect = (connection) => {
     })
 };
 // this only exports a connected repo
-module.exports = Object.assign({}, { connect });
+module.exports = Object.assign({}, {
+    connect
+});

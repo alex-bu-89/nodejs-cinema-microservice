@@ -30,4 +30,6 @@ const start = (options) => {
     });
 }
 
-module.exports = Object.assign({}, {start});
+module.exports = Object.assign({}, {
+    start
+});
