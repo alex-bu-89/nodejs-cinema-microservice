@@ -12,9 +12,10 @@ const connect = (options, mediator) => {
       getMongoURL(options),
       (err, db) => {
         if (err) {
+          console.log('emit db.error');
           mediator.emit('db.error', err);
         }
-
+        console.log('db.ready');
         mediator.emit('db.ready', db);
       },
     );
