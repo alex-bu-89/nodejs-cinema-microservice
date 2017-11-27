@@ -22,4 +22,6 @@ const connect = (options, mediator) => {
   });
 };
 
-module.exports = Object.assign({}, { connect });
+module.exports = Object.assign({}, {
+  connect
+});
