@@ -1,57 +1,59 @@
 /* eslint-env mocha */
-const request = require('supertest')
-const server = require('../../src/server/server')
+const request = require('supertest');
+const server = require('../../src/server/server');
+const should = require('should');
 
 describe('Movies API', () => {
-  let app = null
-  let testMovies = [{
-    'id': '3',
-    'title': 'xXx: Reactivado',
-    'format': 'IMAX',
-    'releaseYear': 2017,
-    'releaseMonth': 1,
-    'releaseDay': 20
+  let app = null;
+  const testMovies = [{
+    id: '3',
+    title: 'xXx: Reactivado',
+    format: 'IMAX',
+    releaseYear: 2017,
+    releaseMonth: 1,
+    releaseDay: 20,
   }, {
-    'id': '4',
-    'title': 'Resident Evil: Capitulo Final',
-    'format': 'IMAX',
-    'releaseYear': 2017,
-    'releaseMonth': 1,
-    'releaseDay': 27
+    id: '4',
+    title: 'Resident Evil: Capitulo Final',
+    format: 'IMAX',
+    releaseYear: 2017,
+    releaseMonth: 1,
+    releaseDay: 27,
   }, {
-    'id': '1',
-    'title': 'Assasins Creed',
-    'format': 'IMAX',
-    'releaseYear': 2017,
-    'releaseMonth': 1,
-    'releaseDay': 6
-  }]
+    id: '1',
+    title: 'Assasins Creed',
+    format: 'IMAX',
+    releaseYear: 2017,
+    releaseMonth: 1,
+    releaseDay: 6,
+  }];
 
-  let testRepo = {
-    getAllMovies () {
-      return Promise.resolve(testMovies)
+  const testRepo = {
+    getAllMovies() {
+      return Promise.resolve(testMovies);
     },
-    getMoviePremiers () {
-      return Promise.resolve(testMovies.filter(movie => movie.releaseYear === 2017))
+    getMoviePremiers() {
+      return Promise.resolve(testMovies.filter(movie => movie.releaseYear === 2017));
     },
-    getMovieById (id) {
-      return Promise.resolve(testMovies.find(movie => movie.id === id))
-    }
-  }
+    getMovieById(id) {
+      return Promise.resolve(testMovies.find(movie => movie.id === id));
+    },
+  };
 
   beforeEach(() => {
     return server.start({
       port: 3000,
       repo: testRepo,
-    }).then((serv) => {
+    })
+    .then((serv) => {
       app = serv;
     });
   });
 
   afterEach(() => {
-    app.close()
-    app = null
-  })
+    app.close();
+    app = null;
+  });
 
   it('can return all movies', (done) => {
     request(app)
@@ -71,7 +73,7 @@ describe('Movies API', () => {
 
   it('can get movie premiers', (done) => {
     request(app)
-    .get('/movies/premiers')
+    .get('/movies/premieres')
     .expect((res) => {
       res.body.should.containEql({
         'id': '1',

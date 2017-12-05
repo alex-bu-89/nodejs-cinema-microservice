@@ -5,8 +5,10 @@
   "main": "index.js",
   "scripts": {
     "start": "node ./src/index.js",
-    "test": "mocha -R spec test/**/*.spec.js",
-    "lint": "eslint src"
+    "test": "mocha --exit -R spec test/**/*.spec.js",
+    "lint": "eslint src",
+    "node-debug": "DEBUG=express* node src/index.js",
+    "chrome-debug": "node --debug-brk --inspect src/index.js"
   },
   "author": "",
   "license": "ISC",

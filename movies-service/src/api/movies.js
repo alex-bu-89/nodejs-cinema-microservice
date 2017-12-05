@@ -6,16 +6,20 @@ module.exports = (app, options) => {
 
   // here we get all the movies
   app.get('/movies', (req, res, next) => {
-    repo.getAllMovies().then(movies => {
+    repo.getAllMovies()
+    .then(movies => {
       res.status(status.OK).json(movies)
-    }).catch(next)
+    })
+    .catch(next)
   })
 
   // here we retrieve only the premieres
   app.get('/movies/premieres', (req, res, next) => {
-    repo.getMoviePremiers().then(movies => {
+    repo.getMoviePremiers()
+    .then(movies => {
       res.status(status.OK).json(movies)
-    }).catch(next)
+    })
+    .catch(next)
   })
 
   // here we get a movie by id
