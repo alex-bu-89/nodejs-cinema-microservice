@@ -60,29 +60,29 @@ describe('Movies API', () => {
       .get('/movies')
       .expect((res) => {
         res.body.should.containEql({
-          'id': '1',
-          'title': 'Assasins Creed',
-          'format': 'IMAX',
-          'releaseYear': 2017,
-          'releaseMonth': 1,
-          'releaseDay': 6
-        })
+          id: '1',
+          title: 'Assasins Creed',
+          format: 'IMAX',
+          releaseYear: 2017,
+          releaseMonth: 1,
+          releaseDay: 6,
+        });
       })
-      .expect(200, done)
-  })
+      .expect(200, done);
+  });
 
   it('can get movie premiers', (done) => {
     request(app)
     .get('/movies/premieres')
     .expect((res) => {
       res.body.should.containEql({
-        'id': '1',
-        'title': 'Assasins Creed',
-        'format': 'IMAX',
-        'releaseYear': 2017,
-        'releaseMonth': 1,
-        'releaseDay': 6
-      })
+        id: '1',
+        title: 'Assasins Creed',
+        format: 'IMAX',
+        releaseYear: 2017,
+        releaseMonth: 1,
+        releaseDay: 6,
+      });
     })
     .expect(200, done)
   })
@@ -92,14 +92,14 @@ describe('Movies API', () => {
       .get('/movies/1')
       .expect((res) => {
         res.body.should.containEql({
-          'id': '1',
-          'title': 'Assasins Creed',
-          'format': 'IMAX',
-          'releaseYear': 2017,
-          'releaseMonth': 1,
-          'releaseDay': 6
-        })
+          id: '1',
+          title: 'Assasins Creed',
+          format: 'IMAX',
+          releaseYear: 2017,
+          releaseMonth: 1,
+          releaseDay: 6,
+        });
       })
-      .expect(200, done)
-  })
-})
+      .expect(200, done);
+  });
+});
